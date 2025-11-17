@@ -1,0 +1,78 @@
+<% layout("/Layouts/boilerplate") -%>
+<head>
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    body {
+      background-color: #ffe4ec; /* light pink */
+    }
+    .form-container {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-top: 5px solid hotpink;
+    }
+    h3 {
+      color: hotpink;
+      font-weight: bold;
+    }
+    .btn-pink {
+      background-color: hotpink;
+      color: white;
+      font-weight: 600;
+    }
+    .btn-pink:hover {
+      background-color: #ff1493;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="form-container mx-auto col-md-6">
+      <h3>Edit this listing</h3>
+
+      <form method="post" action="/listings/<%= listing._id %>?_method=put">
+
+        <div class="mb-3">
+          <label class="form-label">Title</label>
+          <input type="text" class="form-control" name="title" value="<%= listing.title %>">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <input type="text" class="form-control" name="description" value="<%= listing.description %>">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Price</label>
+          <input type="number" class="form-control" name="price" value="<%= listing.price %>">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Location</label>
+          <input type="text" class="form-control" name="location" value="<%= listing.location %>">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Country</label>
+          <input type="text" class="form-control" name="country" value="<%= listing.country %>">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Image URL</label>
+          <input type="text" class="form-control" name="image" value="<%= listing.image %>">
+        </div>
+
+        <button class="btn btn-pink w-100">Edit</button>
+
+      </form>
+    </div>
+  </div>
+</body>
